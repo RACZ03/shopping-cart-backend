@@ -1,0 +1,62 @@
+[
+  {
+    "image": "https://www.shutterstock.com/image-vector/acoustic-guitardreadnought-style-cutaway-natural-600nw-2142993959.jpg",
+    "description": "Acoustic Guitar",
+    "price": 199.99,
+    "stock": 50
+  },
+  {
+    "image": "https://atlas-content-cdn.pixelsquid.com/stock-images/grand-piano-d76Vn0C-600.jpg",
+    "description": "Grand Piano",
+    "price": 2999.99,
+    "stock": 10
+  },
+  {
+    "image": "https://pngimg.com/d/drum_PNG14346.png",
+    "description": "Drum Set",
+    "price": 499.99,
+    "stock": 15
+  },
+  {
+    "image": "https://static.vecteezy.com/system/resources/previews/022/581/585/non_2x/string-violin-classic-png.png",
+    "description": "Classic Violin",
+    "price": 349.99,
+    "stock": 20
+  },
+  {
+    "image": "https://static.vecteezy.com/system/resources/previews/044/245/656/non_2x/silver-flute-isolated-on-a-transparent-background-png.png",
+    "description": "Silver Flute",
+    "price": 129.99,
+    "stock": 30
+  },
+  {
+    "image": "https://atlas-content-cdn.pixelsquid.com/stock-images/golden-saxophone-k1r8GVA-600.jpg",
+    "description": "Alto Saxophone",
+    "price": 799.99,
+    "stock": 12
+  },
+  {
+    "image": "https://png.pngtree.com/png-clipart/20241018/original/pngtree-brass-trumpet-png-image_16395872.png",
+    "description": "Brass Trumpet",
+    "price": 299.99,
+    "stock": 25
+  },
+  {
+    "image": "https://png.pngtree.com/png-clipart/20221015/ourmid/pngtree-black-bass-guitar-png-image_6328053.png",
+    "description": "Electric Bass",
+    "price": 399.99,
+    "stock": 18
+  },
+  {
+    "image": "https://png.pngtree.com/png-vector/20191009/ourmid/pngtree-piano-keyboard-vector-png-image_1777158.jpg",
+    "description": "Digital Keyboard",
+    "price": 249.99,
+    "stock": 22
+  },
+  {
+    "image": "https://i.pinimg.com/736x/5c/9f/71/5c9f71b2e196ccf71e72eb88b9f75be8.jpg",
+    "description": "Electric Guitar",
+    "price": 499.99,
+    "stock": 30
+  }
+]

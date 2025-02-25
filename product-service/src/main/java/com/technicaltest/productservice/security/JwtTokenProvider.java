@@ -1,4 +1,4 @@
-package com.technicaltest.userservice.security;
+package com.technicaltest.productservice.security;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
@@ -21,35 +21,23 @@ public class JwtTokenProvider {
     private Key key;
 
     @PostConstruct
-    protected void init() {
+    public void init() {
         this.key = Keys.hmacShaKeyFor(secretKey.getBytes());
-    }
-
-    public String generateToken(String email) {
-        Date now = new Date();
-        Date validity = new Date(now.getTime() + validityInMilliseconds);
-
-        return Jwts.builder()
-                .setSubject(email)
-                .setIssuedAt(now)
-                .setExpiration(validity)
-                .signWith(key, SignatureAlgorithm.HS256)
-                .compact();
     }
 
     public boolean validateToken(String token) {
         try {
-            Jws<Claims> claims = Jwts.parserBuilder()
+            Jwts.parserBuilder()
                     .setSigningKey(key)
                     .build()
                     .parseClaimsJws(token);
-            return !claims.getBody().getExpiration().before(new Date());
-        } catch (JwtException | IllegalArgumentException e) {
+            return true;
+        } catch (JwtException | IllegalArgumentException ex) {
             return false;
         }
     }
 
-    public String getEmailFromToken(String token) {
+    public String getUsername(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(key)
                 .build()
