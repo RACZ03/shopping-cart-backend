@@ -28,6 +28,13 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public ProductResponseDTO getProductById(Long id) {
+        ProductEntity product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+        return convertToDTO(product);
+    }
+
+    @Override
     public ProductResponseDTO createProduct(ProductRequestDTO productRequestDTO) {
         ProductEntity product = ProductEntity.builder()
                 .image(productRequestDTO.getImage())

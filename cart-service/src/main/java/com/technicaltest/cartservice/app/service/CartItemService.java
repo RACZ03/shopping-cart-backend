@@ -4,8 +4,8 @@ import com.technicaltest.cartservice.app.model.entity.CartItemEntity;
 
 import java.util.List;
 
-public interface CartService {
+public interface CartItemService {
     List<CartItemEntity> getCartByUser(Long userId);
-    CartItemEntity addToCart(CartItemEntity cartItem);
+    CartItemEntity addToCart(Long userId, String token, CartItemEntity cartItem);
     void removeFromCart(Long itemId);
 }

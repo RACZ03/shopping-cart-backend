@@ -26,6 +26,13 @@ public class ProductController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<ApiResponse<ProductResponseDTO>> getProductById(@PathVariable Long id) {
+        ProductResponseDTO product = productService.getProductById(id);
+        ApiResponse<ProductResponseDTO> response = new ApiResponse<>(HttpStatus.OK.value(), "Product fetched successfully", product);
+        return ResponseEntity.ok(response);
+    }
+
     @PostMapping
     public ResponseEntity<ApiResponse<ProductResponseDTO>> createProduct(@Valid @RequestBody ProductRequestDTO productRequestDTO) {
         ProductResponseDTO product = productService.createProduct(productRequestDTO);

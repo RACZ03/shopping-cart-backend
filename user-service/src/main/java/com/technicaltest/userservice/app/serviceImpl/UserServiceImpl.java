@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
         if (!passwordEncoder.matches(request.getPassword(), userEntity.getPassword())) {
             throw new IllegalArgumentException("Invalid email or password");
         }
-        return jwtTokenProvider.generateToken(userEntity.getEmail());
+        return jwtTokenProvider.generateToken(userEntity.getEmail(), userEntity.getId());
     }
 
     @Override

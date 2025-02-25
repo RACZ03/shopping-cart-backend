@@ -1,4 +1,14 @@
 package com.technicaltest.cartservice.app.dto;
 
-public class ApiResponseDTO {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+public class ApiResponseDTO<T> {
+    private int status;
+    private String message;
+    private T data;
 }
