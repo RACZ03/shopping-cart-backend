@@ -3,6 +3,7 @@ package com.technicaltest.userservice.app.serviceImpl;
 import com.technicaltest.userservice.app.dto.UserRegistrationRequest;
 import com.technicaltest.userservice.app.dto.UserLoginRequest;
 import com.technicaltest.userservice.app.dto.UserResponseDTO;
+import com.technicaltest.userservice.app.dto.UserUpdateRequest;
 import com.technicaltest.userservice.app.model.entity.UserEntity;
 import com.technicaltest.userservice.app.model.repository.UserRepository;
 import com.technicaltest.userservice.app.service.UserService;
@@ -56,7 +57,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserResponseDTO updateUser(Long id, UserRegistrationRequest request) {
+    public UserResponseDTO updateUser(Long id, UserUpdateRequest request) {
         UserEntity userEntity = userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("User not found with id " + id));
 
@@ -65,10 +66,6 @@ public class UserServiceImpl implements UserService {
         userEntity.setAddress(request.getAddress());
         userEntity.setEmail(request.getEmail());
         userEntity.setDateOfBirth(request.getDateOfBirth());
-
-        if (request.getPassword() != null && !request.getPassword().isEmpty()) {
-            userEntity.setPassword(passwordEncoder.encode(request.getPassword()));
-        }
 
         userEntity = userRepository.save(userEntity);
         return convertToDTO(userEntity);

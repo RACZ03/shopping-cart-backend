@@ -1,6 +1,7 @@
 package com.technicaltest.cartservice.app.controller;
 
 import com.technicaltest.cartservice.app.dto.ApiResponseDTO;
+import com.technicaltest.cartservice.app.dto.CartItemDTO;
 import com.technicaltest.cartservice.app.model.entity.CartItemEntity;
 import com.technicaltest.cartservice.app.service.CartItemService;
 import org.springframework.http.HttpStatus;
@@ -22,9 +23,11 @@ public class CartController {
     }
 
     @GetMapping
-    public ResponseEntity<ApiResponseDTO<List<CartItemEntity>>> getCart() {
-        Long userId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        List<CartItemEntity> cartItems = cartService.getCartByUser(userId);
+    public ResponseEntity<ApiResponseDTO<List<CartItemDTO>>> getCart() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Long userId = Long.parseLong(authentication.getName());
+        String token = authentication.getCredentials().toString();
+        List<CartItemDTO> cartItems = cartService.getCartByUser(userId, token);
 
         return ResponseEntity.ok(
                 new ApiResponseDTO<>(HttpStatus.OK.value(), "Cart retrieved successfully", cartItems)
